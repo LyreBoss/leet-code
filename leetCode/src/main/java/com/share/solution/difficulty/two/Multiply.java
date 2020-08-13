@@ -29,7 +29,7 @@ public class Multiply {
             ansArr[i] %= 10;
         }
         int index = ansArr[0] == 0 ? 1 : 0;
-        StringBuffer ans = new StringBuffer();
+        StringBuilder ans = new StringBuilder();
         while (index < m + n) {
             ans.append(ansArr[index]);
             index++;
