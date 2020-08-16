@@ -9,7 +9,7 @@ import java.util.Comparator;
 public class Merge {
 
 
-    class Solution {
+    static class Solution {
         public int[][] merge(int[][] intervals) {
             // 先按照区间起始位置排序
             Arrays.sort(intervals, new Comparator<int[]>() {
