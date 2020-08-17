@@ -47,7 +47,6 @@ public class ContainsDuplicate {
             }
         }
 
-        return map.get(tmp);
     }
 
 
