@@ -33,23 +33,7 @@ public class ContainsDuplicate {
             set.add(num);
         }
 
-
-
-        Map<Integer,Integer> map = new HashMap<>();
-        int tmp = 1 ;
-        for(int i = 0; i < nums.length ; i++){
-
-            if(map.get(nums[i]) ==null){
-                map.put(nums[i],tmp);
-                tmp = nums[i];
-            }else{
-                map.remove(nums[i]);
-            }
-        }
-
+        return false;
     }
 
-
-        return set.size() < nums.length;
-    }
 }
