@@ -19,12 +19,17 @@ public class CanJump {
         //下一个
         int j = 0;
 
-        while (j < len){
+        while (j < len) {
 
 
             j++;
         }
 
         return false;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("=======" + Integer.MAX_VALUE);
     }
 }
