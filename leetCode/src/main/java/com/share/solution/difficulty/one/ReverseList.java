@@ -2,6 +2,9 @@ package com.share.solution.difficulty.one;
 
 /**
  * 反转链表
+ * 1、记录当前节点的下一个节点
+ * 2、将当前节点指向pre前置节点
+ * 3、将pre前置节点和cur当前节点前进一位
  *
  * @author Lgq create on 2020-04-03
  */
