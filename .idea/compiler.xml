@@ -11,9 +11,9 @@
         <module name="demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="7">
-      <module name="demo" target="1.5" />
-      <module name="leetCode" target="7" />
+    <bytecodeTargetLevel target="8">
+      <module name="demo" target="8" />
+      <module name="leetCode" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
