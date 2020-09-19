@@ -28,45 +28,6 @@ public class SpiralOrder {
         }
         return null;
     }
-}
-
-class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}
-
-class Solution {
-    public ListNode deleteDuplication(ListNode pHead) {
-
-        if (pHead == null || pHead.next == null) {
-            return pHead;
-        }
-        ListNode dummy = new ListNode(-1);
-        dummy.next = pHead;
-
-        ListNode a = dummy;
-        ListNode b = pHead;
-
-        while(b!=null) {
-            if(a.next.val!=b.val) {
-                a = a.next;
-                b = b.next;
-            }
-            else {
-                while(b!=null && a.next.val==b.val) {
-                    b = b.next;
-                }
-                a.next = b;
-                b = (b==null) ? null : b.next;
-            }
-        }
-        return dummy.next;
-
-    }
 
 
 }

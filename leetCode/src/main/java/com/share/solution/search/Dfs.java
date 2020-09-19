@@ -2,10 +2,7 @@ package com.share.solution.search;
 
 import com.share.solution.base.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * DFS（Deep First Search）深度优先搜索。
@@ -50,6 +47,36 @@ public class Dfs {
 
 
     }
+
+    public int sumOfLeftLeaves(TreeNode root) {
+            if (root == null) {
+                return 0;
+            }
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            int sum = 0;
+            while (!queue.isEmpty()) {
+                TreeNode curr = queue.poll();
+
+                if (curr.left != null) {
+                    if (isLeafNode(curr.left)) {
+                        sum = sum + curr.left.val;
+                    }else {
+                        queue.offer(curr.left);
+                    }
+                }
+                if (curr.right != null) {
+                    if (!isLeafNode(curr.right)) {
+                        queue.offer(curr.right);
+                    }
+                }
+            }
+            return sum;
+    }
+    public boolean isLeafNode(TreeNode node) {
+        return node.left == null && node.right == null;
+    }
+
 
 
 }
