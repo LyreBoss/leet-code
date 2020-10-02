@@ -1,5 +1,7 @@
 package com.share.solution.difficulty.one;
 
+import com.share.solution.base.ListNode;
+
 /**
  * 反转链表
  * 1、记录当前节点的下一个节点
