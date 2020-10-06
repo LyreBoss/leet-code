@@ -1,4 +1,4 @@
-package study.self.event;
+package study.self.event.jdkevent;
 
 /**
  * @author Lgq create on 2020/10/6

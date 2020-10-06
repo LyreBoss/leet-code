@@ -1,4 +1,4 @@
-package study.self.event;
+package study.self.event.jdkevent;
 
 import java.util.EventObject;
 

@@ -1,17 +1,18 @@
-package study.self.event;
+package study.self.event.springevent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 事件发布
+ *
  * @author Lgq create on 2020/10/6
  */
 public class RegisterListenerPublisher {
 
 
     private final List<RegisterEventListener> allListeners = new ArrayList<RegisterEventListener>();
-
 
 
     // 添加监听器

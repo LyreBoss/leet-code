@@ -1,4 +1,4 @@
-package study.self.event;
+package study.self.event.springevent;
 
 /**
  * 邮件监听
