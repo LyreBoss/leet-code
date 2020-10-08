@@ -9,4 +9,7 @@ package study.self.event.springevent;
 public class RegisterEvent {
 
 
+    public RegisterEvent(String s) {
+
+    }
 }

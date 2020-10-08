@@ -698,8 +698,96 @@ class Solution {
         return res;
     }
 
+
+    public int specialArray(int[] nums) {
+        if (nums == null) {
+            return -1;
+        }
+        int res = -1;
+        for (int i = 0; i < nums.length + 1; i++) {
+            int temp = 0;
+            int len = nums.length;
+            while (len > 0) {
+                if (nums[len - 1] >= i) {
+                    temp++;
+                }
+                len--;
+            }
+            if (i == temp) {
+                return temp;
+            }
+        }
+        return res;
+    }
+
+
+    public boolean isEvenOddTree(TreeNode root) {
+
+        if (root == null) {
+            return false;
+        }
+
+        Queue<TreeNode> nodes = new LinkedList<>();
+        nodes.offer(root);
+        int jo = 0;
+
+        while (!nodes.isEmpty()) {
+            int temp = 0;
+            int size = nodes.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = nodes.poll();
+                if (treeNode.left != null) {
+                    nodes.offer(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    nodes.offer(treeNode.right);
+                }
+                //2 层：[3,7,9]
+                //3 层：[12,8,6,2]
+                if (i == 0 && jo == 0 && treeNode.val % 2 == 0) {
+                    return false;
+                }
+                if (size == 1) {
+                    if (jo % 2 == 0 && treeNode.val % 2 == 0) {
+                        return false;
+                    }
+                    if (jo % 2 != 0 && treeNode.val % 2 != 0) {
+                        return false;
+                    }
+
+                } else if (i > 0 && jo % 2 == 0 && (temp >= treeNode.val || temp % 2 == 0 || treeNode.val % 2 == 0)) {
+                    return false;
+                } else if (i > 0 && jo % 2 != 0 && (temp <= treeNode.val || temp % 2 != 0 || treeNode.val % 2 != 0)) {
+                    return false;
+                }
+                temp = treeNode.val;
+            }
+            jo++;
+        }
+
+
+        return true;
+    }
+
     public static void main(String[] args) {
-        new Solution().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3);
+        //new Solution().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3);
+        //[1,10,4,3,null,7,9,12,8,6,null,null,2]
+
+        //System.out.println(new Solution().specialArray(new int[]{3, 6, 7, 7, 0}));
+        //System.out.println(new Solution().specialArray(new int[]{0, 0}));
+        //System.out.println(new Solution().specialArray(new int[]{0, 4, 3, 0, 4}));
+        //System.out.println(new Solution().specialArray(new int[]{3, 5}));
+        //System.out.println(new Solution().specialArray(new int[]{2}));
+        //[11,18,14,3,7,null,null,null,null,18,null,6]
+        //[17,48,44,15,null,17,40]
+        TreeNode node = new TreeNode(17);
+        node.left = new TreeNode(48);
+        node.left.left = new TreeNode(15);
+        node.right = new TreeNode(44);
+        node.right.left = new TreeNode(17);
+        node.right.right = new TreeNode(40);
+        System.out.println(new Solution().isEvenOddTree(node));
+
     }
 
 }

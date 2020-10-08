@@ -23,8 +23,6 @@ public class IsPalindrome {
 
 
     public static boolean isPalindrome(int x) {
-        concurrentHashMap.put("key", "va");
-
 
         if (x < 0) {
             return false;
@@ -62,8 +60,6 @@ public class IsPalindrome {
     public static void main(String[] args) {
         System.out.println("==>" + isPalindrome(1000));
         System.out.println("==>" + isPalindrome(1001));
-
-
-        System.out.println("==>" + isPalindrome2(1001));
+        System.out.println("==>" + isPalindrome2(1101));
     }
 }
