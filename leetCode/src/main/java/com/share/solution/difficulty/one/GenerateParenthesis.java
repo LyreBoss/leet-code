@@ -70,17 +70,90 @@ public class GenerateParenthesis {
                 }
             }
         }
+
         return nums;
+    }
+
+
+    public int[] searchRange(int[] nums, int target) {
+        if (nums == nums) return new int[]{-1, -1};
+        int len = nums.length;
+        if (len == 1 && target != nums[0]) {
+            return new int[]{-1, -1};
+        }
+        int[] res = new int[]{-1, -1};
+        int begin = 0;
+        int end = len - 1;
+        while (isF(begin, end)) {
+            if (nums[begin] == target && res[0] == -1) {
+                res[0] = nums[begin];
+            }
+            if (nums[end] == target && res[1] == -1) {
+                res[1] = nums[end];
+            }
+            begin++;
+            end--;
+        }
+        return res;
+    }
+
+    private boolean isF(int begin, int end) {
+        return begin <= end ? true : false;
     }
 
     public static void main(String[] args) {
         GenerateParenthesis generateParenthesis = new GenerateParenthesis();
+        //
 
-        int[] nums = new int[]{1, 2, 3, 4, 5, 6};
-        for (int i : generateParenthesis.exchange(nums)) {
+        //generateParenthesis.searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
+        //int[] nums = new int[]{1, 2, 3, 4, 5, 6};
+        //for (int i : generateParenthesis.exchange(nums)) {
+        //
+        //    System.out.println(i);
+        //}
+        //System.out.println();
 
-            System.out.println(i);
-        }
-        System.out.println();
+        //int[][] nums = new int[][]{{0, 1}, {1, 1}};
+
+        //System.out.println(generateParenthesis.oddCells(2, 3, nums));
+
+        System.out.println(2%6);
     }
+
+    public int oddCells(int n, int m, int[][] indices) {
+        // 初始化
+        int[][] arrs = new int[n][m];
+
+        // 填充
+        int row = indices.length;
+        int col = indices[0].length;
+
+        for (int i = 0; i < row; i++) {
+            int[] tem = indices[i];
+            // 行 列
+            int h = tem[0];
+            int l = tem[1];
+            for (int j = 0; j < m; j++) {
+                arrs[h][j] = arrs[h][j] + 1;
+            }
+            for (int k = 0; k < n; k++) {
+                arrs[k][l] = arrs[k][l] + 1;
+            }
+        }
+
+        //统计
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (arrs[i][j] % 2 != 0) {
+                    res += 1;
+                }
+            }
+        }
+        return res;
+    }
+
+
+
 }

@@ -790,4 +790,34 @@ class Solution {
 
     }
 
+
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || k == 0) {return head; }
+        int len = 0 ;
+        ListNode node = head ;
+        while (node != null) {
+            node = node.next;
+            len ++ ;
+        }
+        int m  = k % len ;
+        if ( m == len ) {  return head ;}
+        //快
+        ListNode kn = head ;
+        //慢
+        ListNode mm = head ;
+        while (m >0 && kn.next != null) {
+            kn = kn.next;
+            m -- ;
+        }
+        while ( kn.next != null) {
+            kn = kn.next;
+            mm = mm.next;
+        }
+
+        kn.next = head;
+        ListNode res = mm.next;
+        mm.next = null ;
+        return res ;
+    }
+
 }

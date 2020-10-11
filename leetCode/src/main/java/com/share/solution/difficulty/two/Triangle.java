@@ -63,9 +63,6 @@ public class Triangle {
 
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
-        if (matrix == null) {
-            return res;
-        }
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return res;
         }
@@ -83,8 +80,7 @@ public class Triangle {
                 res.add(matrix[j][right]);
             }
             right--;
-            if (left <= right && up <= down) {
-
+            if (avoid(left, right, up, down)) {
                 for (int k = right; k >= left; k--) {
                     res.add(matrix[down][k]);
                 }
@@ -93,7 +89,6 @@ public class Triangle {
                 }
             }
             down--;
-
             left++;
         }
 
@@ -103,7 +98,6 @@ public class Triangle {
     private boolean avoid(int left, int right, int up, int down) {
         return up <= down && left <= right;
     }
-
 
 
     public boolean verifyPostorder(int[] postorder) {
