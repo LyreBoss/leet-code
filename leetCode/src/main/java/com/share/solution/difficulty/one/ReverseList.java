@@ -10,7 +10,8 @@ import com.share.solution.base.ListNode;
  *
  * @author Lgq create on 2020-04-03
  */
-public class ReverseList {
+public class
+ReverseList {
 
     class Solution {
         public ListNode reverseList(ListNode head) {
